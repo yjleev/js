@@ -1,0 +1,40 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="arrow" id="arrow_left">
+                <div></div>
+                <div></div>
+            </div>
+            <div id="frame">
+                <div id="slider">
+                    <article>1</article>
+                    <article>2</article>
+                    <article>3</article>
+                </div>
+            </div>
+            <div class="arrow" id="arrow_right">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <script>
+            const left = document.getElementById('arrow_left');
+            const right = document.getElementById('arrow_right');
+            const slider = document.getElementById('slider');
+            const slides = document.getElementsByTagName('article')
+            if (slides.length > 0) {
+                let slideWidth = slides[0].clientWidth;
+            }
+            left.addEventListener('mousedown', function(){
+                slider.style.transform = `translate(${-movewidth})`
+            })
+        </script>
+    </body>
+    </html>
