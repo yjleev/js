@@ -22,6 +22,7 @@
     height: 300px;
     display: flex;
     text-align: center;
+    transition: 0.5s ease-in-out;
 }
 #slider>article{
     width: 600px;
@@ -57,9 +58,9 @@
     height: 50px;
     width: 10px;
 }
-#arrow_left{
+#left{
     transform: rotate(-45deg);
 }
-#arrow_right{
+#right{
     transform: rotate(135deg);
 }

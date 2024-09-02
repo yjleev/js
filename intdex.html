@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="arrow" id="arrow_left">
+            <div class="arrow" id="left">
                 <div></div>
                 <div></div>
             </div>
@@ -19,22 +19,31 @@
                     <article>3</article>
                 </div>
             </div>
-            <div class="arrow" id="arrow_right">
+            <div class="arrow" id="right">
                 <div></div>
                 <div></div>
             </div>
         </div>
         <script>
-            const left = document.getElementById('arrow_left');
-            const right = document.getElementById('arrow_right');
-            const slider = document.getElementById('slider');
-            const slides = document.getElementsByTagName('article')
-            if (slides.length > 0) {
+            window.onload = function(){        
+                const left = document.getElementById('left');
+                const right = document.getElementById('right');
+                const slider = document.getElementById('slider');
+                const slides = document.getElementsByTagName('article')
                 let slideWidth = slides[0].clientWidth;
+                let moveWidth = 0;
+
+                function move(evnet){
+                    if(event.target == left){
+                        moveWidth += 600;
+                        slider.style.transform = `translate(${moveWidth}px)`
+                    }
+                    else if(evnet.target == right){
+                        moveWidth -= 600;
+                        slider.style.transform = `translate(${moveWidth}px)`
+                    }
+                }
             }
-            left.addEventListener('mousedown', function(){
-                slider.style.transform = `translate(${-movewidth})`
-            })
         </script>
     </body>
     </html>
