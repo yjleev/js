@@ -7,7 +7,19 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <div class="container">
+        <div class="option">
+            <div class="control_width">
+                <label for="width">가로 길이 조절 : </label><input type="text" oninput="maxLength(this)" id="width" placeholder="3자리">
+            </div>
+            <div class="control_width">
+                <label for="height">세로 길이 조절 : </label><input type="text" oninput="maxLength(this)" maxlength="3" id="height" placeholder="3자리">
+            </div>
+            <div class="plus_minus">
+                <img src="./img/+.png" alt="plus" width="40px" height="40px" id="plus">
+                <img src="./img/-.png" alt="minus" width="40px" height="40px" id="minus">
+            </div>
+        </div>
+        <div class="container"> 
             <div id="frame">
                 <div id="slider">
                     <article>1</article>
@@ -21,10 +33,7 @@
                 <div></div>
             </div>
         </div>
-        <div class="option">
-            <input type="text">
-        </div>
-        <script>   
+        <script>
             const arrow = document.querySelector('.arrow');
             const left = document.getElementById('left');
             const right = document.getElementById('right');
@@ -35,33 +44,61 @@
             
             let scaleSize = 0.95;
             let moveWidth = 0;
-            arrow.addEventListener('mousedown', move);
-            function move(move){
+
+            arrow.addEventListener('mousedown', function(move){
                 if(move.target.id === 'left'){
                     if(moveWidth == 0){
                         return;
                     }
                     moveWidth += slidewidth;
-                    slider.style.transform = `translate(${moveWidth}px)`
-                    left.style.transform = `scale(${scaleSize})`
+                    slider.style.transform = `translate(${moveWidth}px)`;
+                    left.style.transform = `scale(${scaleSize})`;
                 }
                 else{
                     if(moveWidth*(-1)+slidewidth == sliderwidth){
                         return;
                     }
                     moveWidth -= slidewidth;
-                    slider.style.transform = `translate(${moveWidth}px)`
-                    right.style.transform = `scale(${scaleSize})`
+                    slider.style.transform = `translate(${moveWidth}px)`;
+                    right.style.transform = `scale(${scaleSize})`;
                 }
                 arrow.addEventListener('mouseup', function(scale){
                     if(scale.target.id === 'left'){
-                        left.style.transform = `scale(1)`
+                        left.style.transform = `scale(1)`;
                     }
                     else{
-                        right.style.transform = `scale(1)`
+                        right.style.transform = `scale(1)`;
                     }
                 })
-            }
+            })
+
+            const plus_minus = document.querySelector('.plus_minus');
+            const plus = document.getElementById('plus');
+            const minus = document.getElementById('minus');
+            const article = document.createElement('article')
+            plus_minus.addEventListener('mousedown', function(add){
+                if(add.target.id === 'plus'){
+                    plus.style.transform = `scale(${scaleSize})`;
+                }
+                else{
+                    minus.style.transform = `scale(${scaleSize})`;
+                }
+                plus_minus.addEventListener('mouseup', function(scale){
+                    if(scale.target.id === 'plus'){
+                        plus.style.transform = `scale(1)`;
+                        if(slider.){
+                            slider.style.width = `${sliderwidth+=slidewidth}px`;
+                        }
+                        slider.appendChild(article);
+                        article.append(`${sliderwidth/slidewidth}`);
+                    }
+                    else{
+                        minus.style.transform = `scale(1)`;
+                    }
+                })
+            })
+                
+            
         </script>
     </body>
     </html>
