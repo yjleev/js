@@ -45,6 +45,7 @@
             let scaleSize = 0.95;
             let moveWidth = 0;
 
+
             arrow.addEventListener('mousedown', function(move){
                 if(move.target.id === 'left'){
                     if(moveWidth == 0){
@@ -86,9 +87,8 @@
                 plus_minus.addEventListener('mouseup', function(scale){
                     if(scale.target.id === 'plus'){
                         plus.style.transform = `scale(1)`;
-                        if(slider.){
-                            slider.style.width = `${sliderwidth+=slidewidth}px`;
-                        }
+                        slider.style.width = `${sliderwidth+=slidewidth}px`;
+                        
                         slider.appendChild(article);
                         article.append(`${sliderwidth/slidewidth}`);
                     }
