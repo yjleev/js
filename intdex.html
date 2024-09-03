@@ -30,7 +30,6 @@
             <div class="arrow">
                 <img src="./img/arrow_left.png" alt="left" id="left">
                 <img src="./img/arrow_right.png" alt="right" id="right">
-                <div></div>
             </div>
         </div>
         <script>
@@ -44,7 +43,6 @@
             
             let scaleSize = 0.95;
             let moveWidth = 0;
-
 
             arrow.addEventListener('mousedown', function(move){
                 if(move.target.id === 'left'){
@@ -64,19 +62,14 @@
                     right.style.transform = `scale(${scaleSize})`;
                 }
                 arrow.addEventListener('mouseup', function(scale){
-                    if(scale.target.id === 'left'){
-                        left.style.transform = `scale(1)`;
-                    }
-                    else{
-                        right.style.transform = `scale(1)`;
-                    }
+                        scale.target.style.transform = `scale(1)`;
                 })
             })
 
             const plus_minus = document.querySelector('.plus_minus');
             const plus = document.getElementById('plus');
             const minus = document.getElementById('minus');
-            const article = document.createElement('article')
+
             plus_minus.addEventListener('mousedown', function(add){
                 if(add.target.id === 'plus'){
                     plus.style.transform = `scale(${scaleSize})`;
@@ -84,21 +77,28 @@
                 else{
                     minus.style.transform = `scale(${scaleSize})`;
                 }
-                plus_minus.addEventListener('mouseup', function(scale){
-                    if(scale.target.id === 'plus'){
-                        plus.style.transform = `scale(1)`;
-                        slider.style.width = `${sliderwidth+=slidewidth}px`;
-                        
+            })
+            plus_minus.addEventListener('mouseup', function(scale){
+                scale.target.style.transform = `scale(1)`;
+                if(scale.target.id === 'plus'){
+                    if(slides.length < 7){
+                        const article = document.createElement('article')
+                        article.innerHTML = `${slides.length+1}`;
                         slider.appendChild(article);
-                        article.append(`${slides.length}`);
+                        slider.style.width = `${sliderwidth+=slidewidth}px`; 
+                        slider.style.transform = `translate(${-sliderwidth+slidewidth}px)`;
+                        moveWidth = -sliderwidth+slidewidth
                     }
                     else{
-                        minus.style.transform = `scale(1)`;
+                        alert('최대 슬라이드입니다.');
                     }
-                })
+                }
+                else{
+                    if(slides.length > 1){
+                        
+                    }
+                }
             })
-                
-            
         </script>
     </body>
     </html>

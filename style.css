@@ -4,7 +4,7 @@
 }
 .container{
     width: 700px;
-    overflow: hidden;
+    /* overflow: hidden; */
     height: 300px;
     margin: 15px auto 0px;
     position: relative;
@@ -22,6 +22,7 @@
     width: 1800px;
     height: 300px;
     display: flex;
+    justify-content: space-between;
     text-align: center;
     transition: 0.5s ease-in-out;
 }
@@ -29,7 +30,7 @@ article{
     display: inline-block;
     width: 600px;
     height: 300px;
-    background-color: rgb(255, 75, 80);
+    background-color: rgb(255, 75, 100);
     line-height: 290px;
     color: #fff;
     text-shadow: 2px 2px black;
@@ -37,10 +38,22 @@ article{
     font-weight: bold;
 }
 #slider>article:nth-child(2){
-    background-color: rgb(255, 150, 80);
+    background-color: rgb(255, 150, 100);
 }
 #slider>article:nth-child(3){
-    background-color: rgb(255, 225, 80);
+    background-color: rgb(255, 225, 100);
+}
+#slider>article:nth-child(4){
+    background-color: rgb(110, 215, 100);
+}
+#slider>article:nth-child(5){
+    background-color: rgb(50, 80, 200);
+}
+#slider>article:nth-child(6){
+    background-color: rgb(50, 30, 175);
+}
+#slider>article:nth-child(7){
+    background-color: rgb(140, 80, 175);
 }
 #left, #right{
     position: absolute;
