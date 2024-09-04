@@ -9,10 +9,10 @@
     <body>
         <div class="option">
             <div class="control_width">
-                <label for="width">가로 길이 조절 : </label><input type="text" oninput="maxLength(this)" id="width" placeholder="3자리">
+                <label for="width">가로 길이 조절 : </label><input onchange="width()" id="width" placeholder="3자리">
             </div>
             <div class="control_width">
-                <label for="height">세로 길이 조절 : </label><input type="text" oninput="maxLength(this)" maxlength="3" id="height" placeholder="3자리">
+                <label for="height">세로 길이 조절 : </label><input onchange="height" id="height" placeholder="3자리">
             </div>
             <div class="plus_minus">
                 <img src="./img/+.png" alt="plus" width="40px" height="40px" id="plus">
@@ -47,6 +47,7 @@
             arrow.addEventListener('mousedown', function(move){
                 if(move.target.id === 'left'){
                     if(moveWidth == 0){
+                        alert('마지막입니다.')
                         return;
                     }
                     moveWidth += slidewidth;
@@ -55,6 +56,7 @@
                 }
                 else{
                     if(moveWidth*(-1)+slidewidth == sliderwidth){
+                        alert('마지막입니다.')
                         return;
                     }
                     moveWidth -= slidewidth;
@@ -81,24 +83,31 @@
             plus_minus.addEventListener('mouseup', function(scale){
                 scale.target.style.transform = `scale(1)`;
                 if(scale.target.id === 'plus'){
-                    if(slides.length < 7){
-                        const article = document.createElement('article')
+                    if(slides.length == 7){
+                        alert('최대 슬라이드입니다.');
+                        return;
+                    }
+                    const article = document.createElement('article')
                         article.innerHTML = `${slides.length+1}`;
                         slider.appendChild(article);
                         slider.style.width = `${sliderwidth+=slidewidth}px`; 
-                        slider.style.transform = `translate(${-sliderwidth+slidewidth}px)`;
-                        moveWidth = -sliderwidth+slidewidth
-                    }
-                    else{
-                        alert('최대 슬라이드입니다.');
-                    }
                 }
                 else{
-                    if(slides.length > 1){
-                        
+                    if(slides.length == 1){
+                        alert('최소 슬라이드입니다.');
+                        return;
                     }
+                    slider.removeChild(slides[slides.length-1]);
+                        slider.style.width = `${sliderwidth-=slidewidth}px`;
+                        slider.style.transform = `translate(${-sliderwidth+slidewidth}px)`;
+                        moveWidth = -sliderwidth+slidewidth
                 }
+                slider.style.transform = `translate(${-sliderwidth+slidewidth}px)`;
+                moveWidth = -sliderwidth+slidewidth;
             })
+            function width(){
+                const width = document.getElementById('width').value;
+            }
         </script>
     </body>
     </html>

@@ -4,7 +4,7 @@
 }
 .container{
     width: 700px;
-    /* overflow: hidden; */
+    overflow: hidden;
     height: 300px;
     margin: 15px auto 0px;
     position: relative;
@@ -13,7 +13,7 @@
     width: 600px;
     height: 300px;
     border-radius: 25px;
-    /* overflow: hidden; */
+    overflow: hidden;
     box-sizing: border-box;
     position: absolute;
     left: 50px;
@@ -22,7 +22,7 @@
     width: 1800px;
     height: 300px;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     text-align: center;
     transition: 0.5s ease-in-out;
 }
