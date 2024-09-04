@@ -22,7 +22,6 @@
     width: 1800px;
     height: 300px;
     display: flex;
-    justify-content: start;
     text-align: center;
     transition: 0.5s ease-in-out;
 }
