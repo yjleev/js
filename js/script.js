@@ -5,18 +5,10 @@ const slider = document.getElementById('slider');
 const slides = document.getElementsByTagName('article')
 let sliderwidth = slider.clientWidth;
 let slidewidth = slides[0].clientWidth;
-const hie = document.querySelector('.height')
-const wid = document.querySelector('.width')
 
 let scaleSize = 0.95;
 let moveWidth = 0;
 
-
-wid.addEventListener('keypress',(e)=>{
-    if(e.keyCode == 13){
-        console.log(wid.value)
-    }
-})
 arrow.addEventListener('mousedown', function(move){
     if(move.target.id === 'left'){
         if(moveWidth == 0){
@@ -76,11 +68,25 @@ plus_minus.addEventListener('mouseup', function(scale){
     slider.style.transform = `translate(${-sliderwidth+slidewidth}px)`;
     moveWidth = -sliderwidth+slidewidth;
 })
-const width = document.getElementById('width');
-// if (window.event.keyCode == 13) {
-//     if(!width.value){
-//         alert('내용을 입력해 주세요')
-//     }
-// }
 
-const button = document.querySelector('.butto')
+const width = document.querySelector('.width')
+const height = document.querySelector('.height')
+const frame = document.getElementById('frame')
+const container = document.getElementById('container')
+
+width.addEventListener('keypress',(e)=>{
+    if(e.keyCode == 13){
+        for(i = 0; i < slides.length; i++){
+            slides[i].style.width = `${width.value}px`
+        }
+        slider.style.width = `${width.value*slides.length}px`
+        frame.style.width = `${width.value}px`
+        let containerwidth = width.value+100;
+        container.style.width = `${(containerwidth)}px`
+    }
+})
+height.addEventListener('keypress',(e)=>{
+    if(e.keyCode == 13){
+        slider.style.height = `${height.value}px`
+    }
+})
