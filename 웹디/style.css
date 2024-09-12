@@ -18,16 +18,53 @@ header{
 }
 .list{
     display: flex;
-
+    position: relative;
 }
 .list a{
     display: block;
     width: 200px;
-    height: 50px;
-    background-color: black;
-}
-.list>ul>a{
-    width: 200px;
     height: 75px;
+    background-color: gray;
+}
+.list>ul>li>a{
+    display: block;
+    width: 200px;
+    height: 50px;
+    background-color: silver;
+}
+.list{
+    overflow: hidden;
+    height: 75px;
+    transition: 0.3s;
+}
+.list:hover{
+    height: 275px;
+}
+.list>ul:hover>a{
+    transition: 0.2s;
+    background-color: rgb(90, 90, 90);
+}
+.list>ul>li>a:hover{
+    transition: 0.2s;
+    background-color: gray;
+}
+main{
+    width: 1200px;
+    margin: 0 auto;
+}
+.frame{
+    width: 1200px;
+    height: 300px;
+    overflow: hidden;
+}
+.slider{
+    width: 3600px;
+    height: 300px;
+    display: flex;
+}
+img{
+    display: block;
+    width: 1200px;
+    height: 300px;
     background-color: aqua;
 }
