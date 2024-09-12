@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add-slide</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 600px;
+            height: 250px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+        }
+        .arrow{
+            margin-top: 100px;
+            width: 40px;
+            height: 40px;
+            transform: rotate(-45deg);
+        }
+        #click{
+            width: 600px;
+            height: 250px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .arrow:last-child{
+            transform: rotate(135deg);
+        }
+        .arrow>div{
+            width: 40px;
+            height: 10px;
+            background-color: black;
+            border-radius: 1000px;
+            position: absolute;
+        }
+        .arrow>div:first-child{
+            transform-origin: 12.5%;
+            transform: rotate(90deg);
+        }
+        .frame{
+            width: 500px;
+            height: 250px;
+            border-radius: 50px;
+            overflow: hidden;
+            position: absolute;
+        }
+        .slider{
+            width: 500px;
+            height: 250px;
+        }
+        .slider>article{
+            width: 500px;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="frame">
+            <div class="slider">
+                <article></article>
+            </div>
+        </div>
+        <div id="click">
+            <div class="arrow" id="arrow_left">
+                <div class="btn"></div>
+                <div class="btn"></div>
+            </div> 
+            <div class="arrow" id="arrow_right">
+                <div class="btn"></div>
+                <div class="btn"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const click = document.getElementById('click');
+        const arrow_left = document.getElementById('arrow_left');
+        const arrow_right = document.getElementById('arrow_right');
+
+        click.addEventListener('mousedown', function(e){
+            if(e.target.id === arrow_left){
+                arrow_left.sytle.transform = 'scale(0.95)'
+            }
+            else{
+                arrow_right.style.transform = 'scale(0.95)'
+            }
+        })
+    </script>
+</body>
+</html>
