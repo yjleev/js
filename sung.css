@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background: url(./img/추석.PNG) no-repeat center;
+    background-size: cover;
+}
+
+.head{
+    width: 250px;
+    height: 600px;
+    position: relative;
+    left: 475px;
+    top: 100px;
+}
+.head>*{
+    position: absolute;
+}
+.face{
+    width: 200px;
+    height: 250px;
+    border-radius: 0px 0px 100px 100px;
+    background-color: blanchedalmond;
+    margin: 50px 0px 0px 25px;
+}
+.eyes{
+    width: 125px;
+    height: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 160px 0px 0px 65px;
+}
+.hair{
+    width: 250px;
+    height: 150px;
+    display: flex;
+}
+.hair>div{
+    width: 150px;
+    height: 150px;
+    background-color: black;
+}
+.hair>div:nth-child(1){
+    border-radius: 80% 0% 50% 0%;
+}
+.hair>div:nth-child(2){
+    border-radius: 0% 80% 0% 50%;
+}
+.mouse{
+    width: 90px;
+    height: 20px;
+    margin: 230px 83px;
+    
+}
+.mouse>*{
+    width: 30px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    transition: 0.3s ease-in;
+}
+.mouse>div:nth-child(1){
+    transform-origin: 100% 0%;
+    transform: rotate(-20deg);
+    border-radius: 5px 0px 0px 5px;
+}
+.mouse>div:nth-child(2){
+    margin-left: 30px;
+}
+.mouse>div:nth-child(3){
+    transform-origin: 0% 100%;
+    transform: rotate(20deg);
+    margin-left: 56.5px;
+    border-radius: 0px 5px 5px 0px;
+}
+.eyes>div{
+    width: 20px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: black;
+}
+#btn{
+    width: 250px;
+    height: 150px;
+    background-color: silver;
+    bottom: 0;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 140px;
+    font-weight: bold;
+    font-size: 2em;
+}
+#container{
+    width: 250px;
+    height: 500px;
+    margin: 150px auto;
+    position: absolute;
+    transform: translateY(-1300px);
+    right: 700px;
+    background-color: aqua;
+    transition: 0.6s ease-in;
+}
+article{
+    width: 250px;
+    height: 500px;
+    position: absolute;
+    transform-origin: 50% 100%;
+    transition: 0.3s ease-in;
+}
+article:nth-child(1){
+    background-color: blue;
+}
+article:nth-child(2){
+    background-color: green;
+}
+article:nth-child(3){
+    background-color: yellow;
+}
+article:nth-child(4){
+    background-color: orange;
+}
+article:nth-child(5){
+    background-color: red;
+}
+#container:hover article:nth-child(1){
+    transform: rotate(60deg);
+}
+#container:hover article:nth-child(2){
+    transform: rotate(30deg);
+}
+#container:hover article:nth-child(4){
+    transform: rotate(-30deg);
+}
+#container:hover article:nth-child(5){
+    transform: rotate(-60deg);
+}

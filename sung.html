@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seung</title>
+    <link rel="stylesheet" href="./sung.css">
+</head>
+<body>
+    <div class="head">
+        <div class="face"></div>
+        <div class="eyes">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="hair">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="mouse">
+            <div id="mouse1"></div>
+            <div id="mouse2"></div>
+            <div id="mouse3"></div>
+        </div>
+        <div id="btn">돈주세요</div>
+    </div>
+    <div id="container">
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+    </div>
+    <script>
+        const btn = document.getElementById('btn');
+        const mouse1 = document.getElementById('mouse1');
+        const mouse2 = document.getElementById('mouse2');
+        const mouse3 = document.getElementById('mouse3');
+        const mouse = document.getElementsByClassName('mouse');
+        const container = document.getElementById('container');
+
+        btn.addEventListener('mousedown', function(){
+            btn.style.transform = 'scale(0.95)';
+            btn.style.backgroundColor = 'black' ;
+            btn.style.color = 'white';
+        })
+        btn.addEventListener('mouseup', function(){
+            btn.style.transform = 'scale(1)';
+            btn.style.backgroundColor = 'silver' ;
+            btn.style.color = 'black';
+            container.style.transform = 'translateY(-200px)';
+            mouse1.style.transform = 'rotate(0deg)';
+            mouse2.style.transform = 'translate(-1.5px)';
+            mouse3.style.transform = 'rotate(0deg)';
+            mouse.style.transform = 'translate(1px)'
+        })
+        // btn.addEventListener('mouseup', function(){
+        //     mouse1.style.transform = 'rotate(20deg)';
+        //     mouse2.style.transform = 'translate(-3px)';
+        //     mouse3.style.transform = 'rotate(-20deg)';
+        //     mouse.style.transform = 'translate(2px)'
+        // })
+    </script>
+</body>
+</html>
